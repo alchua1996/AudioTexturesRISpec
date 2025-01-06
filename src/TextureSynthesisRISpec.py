@@ -69,8 +69,8 @@ class TextureSynthesisRISpec(nn.Module):
         return output
 
     def calc_cov(self, tensor):
-        """flattens tensor and calculates sample mean and covariance matrix
-        along channel"""
+        """calculates covariance matrix 
+	for each channel along time axis"""
         tensor = tensor.squeeze()
         return torch.matmul(tensor, torch.transpose(tensor, 2,1))
 
